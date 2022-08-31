@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import staffSlice, { addStaff } from './staffSlice';
+import staffSlice, { addStaff, getStaff } from './staffSlice';
 import { v4 as uuidv4 } from 'uuid';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -75,7 +75,7 @@ function AddStaff(props) {
       annualLeave: data.annualLeave,
       overTime: data.overTime,
       image: '/assets/images/daidien.png'
-    }))
+    })).then((res) => dispatch(getStaff()))
 
 
 
